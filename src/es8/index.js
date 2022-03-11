@@ -32,3 +32,29 @@ const data3 = {
   front: "Jonathan", // Puede existir
   back: "Eduardo",
 };
+
+// ASYN & AWAIT
+
+const helloWorld = () => {
+  return new Promise((resolve, reject) => {
+    true
+      ? setTimeout(() => resolve("Hello word"), 3000)
+      : reject(new Error("Test error"));
+  });
+};
+
+const helloAsync = async () => {
+  const hello = await helloWorld();
+  console.log(hello);
+};
+helloAsync();
+
+//FORMA PROPUESTA
+const anotherFunction = async () => {
+  try {
+    const hello = await helloWorld();
+    console.log(hello);
+  } catch (error) {
+    console.log(error);
+  }
+};
