@@ -174,3 +174,19 @@ function* helloWorld() {
     yield "World";
   }
 }
+
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+
+function* idMaker() {
+  let index = 0;
+  while (true) yield index++;
+}
+
+var gen = idMaker(); // "Generator { }"
+
+console.log(gen.next().value); // 0
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
